@@ -11,7 +11,7 @@ import SwiftUI
 struct EventScheduleApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            EventView()
         }
     }
 }
