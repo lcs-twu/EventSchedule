@@ -12,12 +12,15 @@ struct StructView: View {
     let priorResult: Result
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text("Date: \(priorResult.date)")
+            Text(\(priorResult.typeInText)
+        }
     }
 }
 
 struct StructView_Previews: PreviewProvider {
     static var previews: some View {
-        StructView()
+        StructView(priorResult: exampleResultForPreviews)
     }
 }

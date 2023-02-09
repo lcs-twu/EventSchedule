@@ -15,4 +15,4 @@ struct Result: Identifiable {
     
 }
 
-var exampleResultForPreviews = Result(date: 2023-02-09, text: "Type something")
+var exampleResultForPreviews = Result(date: Date(), text: "Type something")

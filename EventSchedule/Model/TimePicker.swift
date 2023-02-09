@@ -9,13 +9,10 @@ import SwiftUI
 
 struct TimePicker: View {
     @State private var date = Date()
-    @State var typeInText = ""
     var body: some View {
         VStack(alignment: .leading){
             
-            TextField("Type", text: $typeInText)
-            .truncationMode(.middle)
-            .padding(.horizontal)
+            
             
             Form {
                 DatePicker("Today", selection: $date,
@@ -25,7 +22,7 @@ struct TimePicker: View {
                     Text("Pick the date:")
                         .bold()
                         .font(.title2)
-                    DatePicker("Birthday", selection: $date,
+                    DatePicker("Date", selection: $date,
                                displayedComponents: .date)
                     .datePickerStyle(.graphical)
                 }

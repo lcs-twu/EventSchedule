@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EventView: View {
-    
+    @State var typeInText = ""
 //    @State var genderIsMale: Bool = false
     
     @Binding var history: [Result]
@@ -28,6 +28,9 @@ struct EventView: View {
                         .font(.largeTitle)
                     Spacer()
                 }
+                TextField("Type", text: $typeInText)
+                .truncationMode(.middle)
+                .padding(.horizontal)
 //                Button(action: {
 //
 //                    genderIsMale.toggle()
@@ -42,6 +45,15 @@ struct EventView: View {
                     
                 
                 TimePicker()
+                Button(action: {
+                    let date = Date()
+                    let priorResult = Result(date: Date(), text: typeInText)
+                },
+                       label: {
+                           Text("Save")
+                               .font(.headline.smallCaps())
+                       })
+                .buttonStyle(.bordered)
                 Spacer()
             }
         //}
@@ -51,6 +63,6 @@ struct EventView: View {
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
-        EventView()
+        EventView(history: Binding.constant([exampleResultForPreviews]))
     }
 }
