@@ -14,13 +14,13 @@ struct StructView: View {
     var body: some View {
         VStack{
             Text("Date: \(priorResult.date)")
-            Text(\(priorResult.typeInText)
+            Text(priorResult.text)
         }
     }
 }
-
 struct StructView_Previews: PreviewProvider {
     static var previews: some View {
         StructView(priorResult: exampleResultForPreviews)
     }
 }
+

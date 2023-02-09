@@ -11,10 +11,20 @@ struct HistoryView: View {
     @Binding var history: [Result]
     var body: some View {
         HStack{
-            Text("Things not done yet...")
-                .bold()
-                .font(.largeTitle)
+    
+            NavigationView {
+                List {
+                    ForEach(history.reversed()) { somePriorResult in
+                        StructView(priorResult: somePriorResult)
+                    }
+                    .onDelete(perform: delete)
+                }
+                .navigationTitle("History")
+            }
         }
+    }
+    func delete(at offsets: IndexSet) {
+        history.remove(atOffsets: offsets)
     }
 }
 
